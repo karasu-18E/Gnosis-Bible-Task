@@ -1,54 +1,54 @@
 package id.ac.ukdw.fti.rpl.Gnosis.modal;
 
 public class Search {
-    private String verseEvent1;
-    private String verseDate1;
+    private String name;
+    private String birthplace;
+    private String deathplace;
     private String verseDuration1;
-    private String AyatEvents1;
 
-    public void setAyatEvents1(String AyatEvents1){
-        this.AyatEvents1=AyatEvents1;
+    public void setName(String name){
+        this.name = name;
     }
     
-    public void setVerseEvent1(String verseEvent1){
-        this.verseEvent1=verseEvent1;
+    public void setBirthplace(String birthplace){
+        this.birthplace = birthplace;
     }
 
-    public void setVerseDate1(String verseDate1){
-        this.verseDate1=verseDate1;
+    public void setDeathplace(String deathplace){
+        this.deathplace = deathplace;
     }
 
     public void setVerseDuration1(String verseDuration1){
         this.verseDuration1=verseDuration1;
     }
 
-    public String getAyatEvents1(){
-        if (this.AyatEvents1==null) {
+    public String getName(){
+        if (this.name==null) {
             return "unknown";
         }
         else{
-            return this.AyatEvents1;
+            return this.name;
         } 
     }
 
-    public String getVerseEvent1(){
-        if (this.verseEvent1==null) {
+    public String getBirthplace(){
+        if (this.birthplace==null) {
             return "unknown";
         }
         else{
-            return this.verseEvent1;
+            return this.birthplace;
         } 
     }
 
-    public String getVerseDate1(){
-        if (this.verseDate1==null) {
+    public String getDeathplace(){
+        if (this.deathplace==null) {
             return "unknown";
         }
-        else if(this.verseDate1.contains("-")){
-            return this.verseDate1.substring(1,this.verseDate1.length())+" BC";
+        else if(this.deathplace.contains("-")){
+            return this.deathplace.substring(1,this.deathplace.length())+" BC";
         }
         else{
-            return "AD "+this.verseDate1;
+            return "AD "+this.deathplace;
         }   
     }
 
@@ -60,22 +60,5 @@ public class Search {
             return this.verseDuration1;
         }   
     }
-
-    public String getDeathplace() {
-        return null;
-    }
-
-    public String getBirthplace() {
-        return null;
-    }
-
-    public String getVerses() {
-        return null;
-    }
-
-    public String getName() {
-        return null;
-    }
-
 
 }

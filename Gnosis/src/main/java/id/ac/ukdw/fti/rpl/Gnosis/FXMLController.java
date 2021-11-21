@@ -21,58 +21,52 @@ public class FXMLController implements Initializable{
     private ObservableList<Search> verses = FXCollections.observableArrayList();
 
     @FXML
-    private TextField TfObject;
-
-    @FXML
     private TableView<Search> maintable;
-
+    
     @FXML
     private TableColumn<Search, String> tcpeople;
-
+    
     @FXML
     private TableColumn<Search, String> tcbirthplace;
-
+    
     @FXML
     private TableColumn<Search, String> tcdeathplace;
-
+    
     @FXML
-    private TableColumn<Search, String> tcverse;
-
+    private TableColumn<Search, String> verseDuration;
+    
+    @FXML
+    private TextField tfsearch;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         verses = Database.instance.getAllVerse();
-        tcpeople.setCellValueFactory(new PropertyValueFactory<Search, String>("name"));
-        tcbirthplace.setCellValueFactory(new PropertyValueFactory<Search, String>("birthplace"));
-        tcdeathplace.setCellValueFactory(new PropertyValueFactory<Search, String>("deathplace"));
-        tcverse.setCellValueFactory(new PropertyValueFactory<Search,String>("verses"));
+        tcpeople.setCellValueFactory(new PropertyValueFactory<Search, String>("Name"));
+        tcbirthplace.setCellValueFactory(new PropertyValueFactory<Search, String>("Birthplace"));
+        tcdeathplace.setCellValueFactory(new PropertyValueFactory<Search, String>("Deathplace"));
+        verseDuration.setCellValueFactory(new PropertyValueFactory<Search,String>("verseDuration1"));
         maintable.setItems(verses);
 
         //menampilkan semua data
         FilteredList<Search> filteredData= new FilteredList<>(verses,searching->true);
 
-        TfObject.textProperty().addListener((Observable, oldValue, newValue) -> {
+        tfsearch.textProperty().addListener((Observable, oldValue, newValue) -> {
             filteredData.setPredicate(verse -> {
                 if (newValue==null || newValue.isEmpty()) {
                     return true;
                     
                 }
                 String lowerCase=newValue.toLowerCase();
-
-                // mencari kesesuaian ayat bedasarkan event, jika true maka akan ditampilkan
                 if(verse.getName().toLowerCase().indexOf(lowerCase)!=-1){
                     return true; 
                 }              
-                // mencari kesesuaian nama bedasarkan event, jika true maka akan ditampilkan
                 if(verse.getBirthplace().toLowerCase().indexOf(lowerCase)!=-1){
                     return true; 
                 }
-                // mencari kesesuaian tahun bedasarkan event, jika true maka akan ditampilkan
                 if(verse.getDeathplace().toLowerCase().indexOf(lowerCase)!=-1){
                     return true; 
                 }
-                // mencari kesesuaian durasi bedasarkan event, jika true maka akan ditampilkan
-                if(verse.getVerses().toLowerCase().indexOf(lowerCase)!=-1){
+                if(verse.getVerseDuration1().toLowerCase().indexOf(lowerCase)!=-1){
                     return true; 
                 }
                 else{
@@ -80,11 +74,8 @@ public class FXMLController implements Initializable{
                 }
             });
         });
-        // mengumpulkan filterlist untuk diurutkan 
         SortedList<Search> sortingData=new SortedList<>(filteredData);
-        // mengurutkan list pada tabel dan dikomparasi
         sortingData.comparatorProperty().bind(maintable.comparatorProperty());
-        // menambahkan data yang terurut pada tabel
         maintable.setItems(sortingData);
     }   
 }

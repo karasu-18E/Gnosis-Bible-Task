@@ -36,9 +36,9 @@ public class Database {
             ResultSet result = statement.executeQuery(querySelect);
             while (result.next()){
                 Search verse= new Search();
-                verse.setAyatEvents1(result.getString("name"));
-                verse.setVerseEvent1(result.getString("birthPlace"));
-                verse.setVerseDate1(result.getString("deathPlace"));
+                verse.setName(result.getString("name"));
+                verse.setBirthplace(result.getString("birthPlace"));
+                verse.setDeathplace(result.getString("deathPlace"));
                 verse.setVerseDuration1(result.getString("verses"));
                 verses.add(verse);
             }

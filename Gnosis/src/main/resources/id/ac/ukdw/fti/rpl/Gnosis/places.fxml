@@ -7,14 +7,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.ukdw.fti.rpl.Gnosis.FXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="1289.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.ukdw.fti.rpl.Gnosis.FXMLController">
    <children>
-      <TableView fx:id="tableVerses" layoutX="15.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="766.0">
+      <TableView fx:id="maintable" layoutX="15.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="1261.0">
         <columns>
-            <TableColumn fx:id="AyatEvents" prefWidth="85.77781105041504" text="name" />
-          <TableColumn fx:id="verseEvent" prefWidth="206.22220611572266" text="birthplace" />
-          <TableColumn fx:id="verseDate" prefWidth="143.99990844726562" text="deathplace" />
-            <TableColumn fx:id="verseDuration" prefWidth="313.3333740234375" text="verse" />
+            <TableColumn fx:id="tcpeople" prefWidth="85.77781105041504" text="name" />
+          <TableColumn fx:id="tcbirthplace" prefWidth="206.22220611572266" text="birthplace" />
+          <TableColumn fx:id="tcdeathplace" prefWidth="143.99990844726562" text="deathplace" />
+            <TableColumn fx:id="verseDuration" prefWidth="823.3333333333333" text="verse" />
         </columns>
       </TableView>
       <Text fill="#620808" layoutX="88.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="People &amp; Places" wrappingWidth="275.46014404296875">
@@ -22,6 +22,6 @@
             <Font name="STXinwei" size="36.0" />
          </font>
       </Text>
-      <TextField fx:id="filterField" layoutX="529.0" layoutY="38.0" prefHeight="26.0" prefWidth="223.0" promptText="Seacrh" />
+      <TextField fx:id="tfsearch" layoutX="529.0" layoutY="38.0" prefHeight="26.0" prefWidth="223.0" promptText="Seacrh" />
    </children>
 </AnchorPane>

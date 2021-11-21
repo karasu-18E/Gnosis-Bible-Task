@@ -16,11 +16,11 @@ public class App extends Application
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("places.fxml"));
 
         Scene scene = new Scene(root);
 
-        stage.setTitle("Table Alkitab");
+        stage.setTitle("Bible Table");
         stage.setScene(scene);
         stage.show();
     }
