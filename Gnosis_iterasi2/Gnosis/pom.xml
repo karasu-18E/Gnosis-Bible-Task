@@ -81,7 +81,7 @@
           <artifactId>javafx-maven-plugin</artifactId>
           <version>0.0.6</version>
           <configuration>
-            <mainClass>Gnosis/id.ac.ukdw.fti.rpl.Gnosis.App</mainClass>
+            <mainClass>GnosisPP/Gnosis_iterasi2/Gnosis/src/main/java/id/ac/ukdw/fti/rpl/Gnosis</mainClass>
           </configuration>
         </plugin>
       </plugins>

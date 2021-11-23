@@ -1,0 +1,4 @@
+--patch-module
+Gnosis=_
+--add-reads
+Gnosis=ALL-UNNAMED
