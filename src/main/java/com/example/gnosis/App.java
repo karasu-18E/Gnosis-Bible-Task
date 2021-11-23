@@ -18,7 +18,7 @@ public class App  extends Application
     public void start(Stage stage) throws Exception {
 
     
-        Parent root = FXMLLoader.load(getClass().getResource("gnosis-scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
     
         Scene scene = new Scene(root);
 
