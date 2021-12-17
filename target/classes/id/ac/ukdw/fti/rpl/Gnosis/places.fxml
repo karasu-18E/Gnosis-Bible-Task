@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -11,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.ukdw.fti.rpl.Gnosis.FXMLController">
    <children>
-      <TabPane layoutX="1.0" layoutY="1.0" prefHeight="479.0" prefWidth="638.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="479.0" prefWidth="638.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab text="Alkitab">
               <content>
@@ -42,7 +46,23 @@
           </Tab>
           <Tab text="Visualisasi Utama">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BarChart layoutX="24.0" layoutY="58.0" prefHeight="369.0" prefWidth="590.0" style="-fx-background-color: #fff1e9;">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <Label layoutX="226.0" layoutY="14.0" prefHeight="44.0" prefWidth="185.0" text="Grafik Place" textAlignment="CENTER" textFill="#620606">
+                           <font>
+                              <Font name="STXinwei" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
             </content>
           </Tab>
             <Tab text="Visualisasi Sekunder">

@@ -20,7 +20,7 @@ public class App extends Application
 
         Scene scene = new Scene(root);
 
-        String scenestring = new String("visualisasi utama PEOPLE&PLACE");
+        String scenestring = new String("Bible Gnosis");
 
         stage.setTitle(scenestring);
         stage.setScene(scene);
