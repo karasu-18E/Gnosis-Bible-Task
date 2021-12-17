@@ -20,7 +20,7 @@ public class App extends Application
 
         Scene scene = new Scene(root);
 
-        stage.setTitle("Bible Table");
+        stage.setTitle("Visualisasi utama People & Places");
         stage.setScene(scene);
         stage.show();
     }

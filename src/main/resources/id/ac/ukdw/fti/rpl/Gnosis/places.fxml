@@ -11,10 +11,10 @@
    <children>
       <TableView fx:id="maintable" layoutX="15.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="1261.0">
         <columns>
-            <TableColumn fx:id="tcpeople" prefWidth="85.77781105041504" text="name" />
-          <TableColumn fx:id="tcbirthplace" prefWidth="206.22220611572266" text="birthplace" />
-          <TableColumn fx:id="tcdeathplace" prefWidth="143.99990844726562" text="deathplace" />
-            <TableColumn fx:id="verseDuration" prefWidth="823.3333333333333" text="verse" />
+            <TableColumn fx:id="tcpeople" prefWidth="85.77781105041504" text="Places" />
+          <TableColumn fx:id="tcbirthplace" prefWidth="206.22220611572266" text="People Died" />
+          <TableColumn fx:id="tcdeathplace" prefWidth="143.99990844726562" text="Has been here" />
+            <TableColumn fx:id="verseDuration" prefWidth="823.3333333333333" text="Verse" />
         </columns>
       </TableView>
       <Text fill="#620808" layoutX="88.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="People &amp; Places" wrappingWidth="275.46014404296875">

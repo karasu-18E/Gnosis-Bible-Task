@@ -13,7 +13,7 @@ import javafx.collections.ObservableList;
 
 public class Database {
     final private String url="jdbc:sqlite:vizbible.sqlite";
-    final private String querySelect="SELECT name, birthPlace, deathPlace, verses from people";
+    final private String querySelect="SELECT displayTitle, peopleDied, hasBeenHere, verses from places";
     ObservableList<Search> verses=FXCollections.observableArrayList();
     private Connection connection = null;
     public static Database instance= new Database();
@@ -36,9 +36,9 @@ public class Database {
             ResultSet result = statement.executeQuery(querySelect);
             while (result.next()){
                 Search verse= new Search();
-                verse.setName(result.getString("name"));
-                verse.setBirthplace(result.getString("birthPlace"));
-                verse.setDeathplace(result.getString("deathPlace"));
+                verse.setName(result.getString("displayTitle"));
+                verse.setBirthplace(result.getString("peopleDied"));
+                verse.setDeathplace(result.getString("hasBeenHere"));
                 verse.setVerseDuration1(result.getString("verses"));
                 verses.add(verse);
             }
