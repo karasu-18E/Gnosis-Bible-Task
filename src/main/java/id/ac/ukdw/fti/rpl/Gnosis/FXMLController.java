@@ -25,13 +25,13 @@ public class FXMLController implements Initializable{
     private TableView<Search> maintable;
     
     @FXML
-    private TableColumn<Search, String> tcpeople;
+    private TableColumn<Search, String> tcplace;
     
     @FXML
-    private TableColumn<Search, String> tcbirthplace;
+    private TableColumn<Search, String> tcpeopledied;
     
     @FXML
-    private TableColumn<Search, String> tcdeathplace;
+    private TableColumn<Search, String> tchasbeenhere;
     
     @FXML
     private TableColumn<Search, String> verseDuration;
@@ -45,9 +45,9 @@ public class FXMLController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         verses = Database.instance.getAllVerse();
-        tcpeople.setCellValueFactory(new PropertyValueFactory<Search, String>("Name"));
-        tcbirthplace.setCellValueFactory(new PropertyValueFactory<Search, String>("Birthplace"));
-        tcdeathplace.setCellValueFactory(new PropertyValueFactory<Search, String>("Deathplace"));
+        tcplace.setCellValueFactory(new PropertyValueFactory<Search, String>("place"));
+        tcpeopledied.setCellValueFactory(new PropertyValueFactory<Search, String>("peopledied"));
+        tchasbeenhere.setCellValueFactory(new PropertyValueFactory<Search, String>("hasbeenhere"));
         verseDuration.setCellValueFactory(new PropertyValueFactory<Search,String>("verseDuration1"));
         maintable.setItems(verses);
 
@@ -61,13 +61,13 @@ public class FXMLController implements Initializable{
                     
                 }
                 String lowerCase=newValue.toLowerCase();
-                if(verse.getName().toLowerCase().indexOf(lowerCase)!=-1){
+                if(verse.getPlace().toLowerCase().indexOf(lowerCase)!=-1){
                     return true; 
                 }              
-                if(verse.getBirthplace().toLowerCase().indexOf(lowerCase)!=-1){
+                if(verse.getPeopledied().toLowerCase().indexOf(lowerCase)!=-1){
                     return true; 
                 }
-                if(verse.getDeathplace().toLowerCase().indexOf(lowerCase)!=-1){
+                if(verse.getHasbeenhere().toLowerCase().indexOf(lowerCase)!=-1){
                     return true; 
                 }
                 if(verse.getVerseDuration1().toLowerCase().indexOf(lowerCase)!=-1){
