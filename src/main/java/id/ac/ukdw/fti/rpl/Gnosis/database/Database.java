@@ -14,7 +14,11 @@ import javafx.collections.ObservableList;
 public class Database {
     final private String url="jdbc:sqlite:vizbible.sqlite";
     final private String querySelect="SELECT displayTitle, peopleDied, hasBeenHere, verses from places";
+    final private String queryGrafik="SELECT people.displayTitle, count(places.placeID) FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
+    
     ObservableList<Search> verses=FXCollections.observableArrayList();
+    ObservableList<Search> kategori=FXCollections.observableArrayList();
+
     private Connection connection = null;
     public static Database instance= new Database();
 

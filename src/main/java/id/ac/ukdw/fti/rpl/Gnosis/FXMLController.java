@@ -4,7 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -40,7 +42,13 @@ public class FXMLController implements Initializable{
     private TextField tfsearch;
 
     @FXML
-    private Button btngrafik;
+    private BarChart<?, ?> bcpeople;
+
+    @FXML
+    private CategoryAxis xpeople;
+
+    @FXML
+    private NumberAxis ynumber;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

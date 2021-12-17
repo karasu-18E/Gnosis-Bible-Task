@@ -48,12 +48,12 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <BarChart layoutX="24.0" layoutY="58.0" prefHeight="369.0" prefWidth="590.0" style="-fx-background-color: #fff1e9;">
+                        <BarChart fx:id="bcpeople" layoutX="24.0" layoutY="58.0" prefHeight="369.0" prefWidth="590.0" style="-fx-background-color: #fff1e9;">
                           <xAxis>
-                            <CategoryAxis side="BOTTOM" />
+                            <CategoryAxis side="BOTTOM" fx:id="xpeople" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis side="LEFT" />
+                            <NumberAxis fx:id="ygrafik" side="LEFT" />
                           </yAxis>
                         </BarChart>
                         <Label layoutX="226.0" layoutY="14.0" prefHeight="44.0" prefWidth="185.0" text="Grafik Place" textAlignment="CENTER" textFill="#620606">
