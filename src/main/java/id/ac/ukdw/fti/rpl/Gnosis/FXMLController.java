@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -37,6 +38,9 @@ public class FXMLController implements Initializable{
     
     @FXML
     private TextField tfsearch;
+
+    @FXML
+    private Button btngrafik;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

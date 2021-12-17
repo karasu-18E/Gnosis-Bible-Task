@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -9,19 +11,46 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.ukdw.fti.rpl.Gnosis.FXMLController">
    <children>
-      <TableView fx:id="maintable" layoutX="10.0" layoutY="85.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="617.0">
-        <columns>
-            <TableColumn fx:id="tcpeople" prefWidth="85.77781105041504" text="Places" />
-          <TableColumn fx:id="tcbirthplace" prefWidth="133.33330535888672" text="People Died" />
-          <TableColumn fx:id="tcdeathplace" prefWidth="120.66670227050781" text="Has been here" />
-            <TableColumn fx:id="verseDuration" prefWidth="277.9999084472656" text="Verse" />
-        </columns>
-      </TableView>
-      <Text fill="#620808" layoutX="17.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="People &amp; Places" wrappingWidth="275.46014404296875">
-         <font>
-            <Font name="STXinwei" size="36.0" />
-         </font>
-      </Text>
-      <TextField fx:id="tfsearch" layoutX="395.0" layoutY="44.0" prefHeight="26.0" prefWidth="223.0" promptText="Seacrh" />
+      <TabPane layoutX="1.0" layoutY="1.0" prefHeight="479.0" prefWidth="638.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Alkitab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+          <Tab text="Visualisasi Utama Topik">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fill="#620808" layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="People &amp; Places" wrappingWidth="275.46014404296875">
+                           <font>
+                              <Font name="STXinwei" size="36.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="tfsearch" layoutX="389.0" layoutY="26.0" prefHeight="26.0" prefWidth="223.0" promptText="Seacrh" />
+                        <TableView fx:id="maintable" layoutX="6.0" layoutY="78.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="626.0">
+                          <columns>
+                              <TableColumn fx:id="tcpeople" prefWidth="85.77781105041504" text="Places" />
+                            <TableColumn fx:id="tcbirthplace" prefWidth="133.33330535888672" text="People Died" />
+                            <TableColumn fx:id="tcdeathplace" prefWidth="120.66670227050781" text="Has been here" />
+                              <TableColumn fx:id="verseDuration" prefWidth="277.9999084472656" text="Verse" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Visualisasi Utama">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Visualisasi Sekunder">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
