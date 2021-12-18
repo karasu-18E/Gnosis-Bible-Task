@@ -22,6 +22,7 @@ import javafx.collections.FXCollections;
 public class FXMLController implements Initializable{
     
     private ObservableList<Search> verses = FXCollections.observableArrayList();
+    private ObservableList<Search> kategori = FXCollections.observableArrayList();
 
     @FXML
     private TableView<Search> maintable;
@@ -42,7 +43,7 @@ public class FXMLController implements Initializable{
     private TextField tfsearch;
 
     @FXML
-    private BarChart<?, ?> bcpeople;
+    private BarChart<String, Integer> bcpeople;
 
     @FXML
     private CategoryAxis xpeople;
@@ -52,6 +53,7 @@ public class FXMLController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //VUT
         verses = Database.instance.getAllVerse();
         tcplace.setCellValueFactory(new PropertyValueFactory<Search, String>("place"));
         tcpeopledied.setCellValueFactory(new PropertyValueFactory<Search, String>("peopledied"));
@@ -89,6 +91,10 @@ public class FXMLController implements Initializable{
         SortedList<Search> sortingData=new SortedList<>(filteredData);
         sortingData.comparatorProperty().bind(maintable.comparatorProperty());
         maintable.setItems(sortingData);
+
+        //grafik
+        kategori = Database.instance.getPeople();
+        xpeople.setCellValueFactory(new PropertyValueFactory)
     }   
 }
     

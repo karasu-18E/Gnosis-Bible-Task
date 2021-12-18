@@ -53,7 +53,7 @@
                             <CategoryAxis side="BOTTOM" fx:id="xpeople" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis fx:id="ygrafik" side="LEFT" />
+                            <NumberAxis fx:id="ynumber" side="LEFT" />
                           </yAxis>
                         </BarChart>
                         <Label layoutX="226.0" layoutY="14.0" prefHeight="44.0" prefWidth="185.0" text="Grafik Place" textAlignment="CENTER" textFill="#620606">
