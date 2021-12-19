@@ -7,6 +7,8 @@ public class Search {
     private String ayat;
     private String verseDuration1;
     private String verseText1;
+    private int jumlah;
+    private String people;
 
     public String getHasbeenhere() {
         if (this.hasbeenhere == null) {
@@ -14,6 +16,22 @@ public class Search {
         } else {
             return this.hasbeenhere;
         }
+    }
+
+    public int getJumlah() {
+        return jumlah;
+    }
+
+    public void setJumlah(int jumlah) {
+        this.jumlah = jumlah;
+    }
+
+    public String getPeople() {
+        return people;
+    }
+
+    public void setPeople(String people) {
+        this.people = people;
     }
 
     public String getAyat() {

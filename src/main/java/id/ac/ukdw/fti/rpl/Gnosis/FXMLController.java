@@ -8,6 +8,7 @@ import javafx.scene.control.TextInputControl;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,6 +25,7 @@ public class FXMLController implements Initializable {
 
     private ObservableList<Search> verses = FXCollections.observableArrayList();
     private ObservableList<Search> pernyataann = FXCollections.observableArrayList();
+    private ObservableList<Search> people = FXCollections.observableArrayList();
 
     @FXML
     private TableView<Search> maintable;
@@ -46,7 +48,7 @@ public class FXMLController implements Initializable {
     private TextField tfsearch;
 
     @FXML
-    private BarChart<?, ?> bcpeople;
+    private BarChart<String, Integer> bcpeople;
 
     @FXML
     private CategoryAxis xpeople;
@@ -106,7 +108,6 @@ public class FXMLController implements Initializable {
         maintable.setItems(sortingData);
 
         // alkitab
-
         pernyataann = Database.instance.getAllPernyataan();
         tcayat.setCellValueFactory(new PropertyValueFactory<Search, String>("ayat"));
         verseText.setCellValueFactory(new PropertyValueFactory<Search, String>("verseText1"));
@@ -130,6 +131,27 @@ public class FXMLController implements Initializable {
                 }
             });
         });
+
+        // grafik
+        people = Database.instance.getAllKategori();
+        /*
+         * tcplace.setCellValueFactory(new PropertyValueFactory<Search,
+         * String>("place"));
+         * tcpeopledied.setCellValueFactory(new PropertyValueFactory<Search,
+         * String>("peopledied"));
+         */
+
+        XYChart.Series<String, Integer> datapeople = new XYChart.Series<String, Integer>();
+
+        for (int i = 0; i < people.size(); i++) {
+            datapeople.getData()
+                    .add(new XYChart.Data<String, Integer>(people.get(0).getPeople(), people.get(0).getJumlah()));
+
+        }
+
+        bcpeople.getData().add(datapeople);
+
+        // bcpeople.setItems(people);
 
     }
 

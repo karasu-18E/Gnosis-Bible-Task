@@ -16,8 +16,11 @@ public class Database {
     final private String querySelect = "SELECT displayTitle, peopleDied, hasBeenHere, verses from places";
     final private String queryGrafik = "SELECT people.displayTitle, count(places.placeID) FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
     final private String querySelectt = "SELECT osisRef,verseText from verses";
+
     ObservableList<Search> verses = FXCollections.observableArrayList();
+    // GRAFIK
     ObservableList<Search> kategori = FXCollections.observableArrayList();
+    // ALKITAB
     ObservableList<Search> pernyataann = FXCollections.observableArrayList();
 
     private Connection connection = null;
@@ -67,5 +70,22 @@ public class Database {
             System.out.println(e.getMessage());
         }
         return pernyataann;
+    }
+
+    public ObservableList<Search> getAllKategori() {
+        try {
+            Statement grafikstatement = connection.createStatement();
+            ResultSet grafikresult = grafikstatement.executeQuery(queryGrafik);
+            while (grafikresult.next()) {
+                Search people = new Search();
+                people.setPeople(grafikresult.getString("displayTitle"));
+                people.setJumlah(grafikresult.getInt("count(place.placeID)"));
+                kategori.add(people);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return verses;
+
     }
 }
