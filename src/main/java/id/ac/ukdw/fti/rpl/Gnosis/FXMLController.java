@@ -91,10 +91,10 @@ public class FXMLController implements Initializable{
         SortedList<Search> sortingData=new SortedList<>(filteredData);
         sortingData.comparatorProperty().bind(maintable.comparatorProperty());
         maintable.setItems(sortingData);
-
+/*
         //grafik
         kategori = Database.instance.getPeople();
-        xpeople.setCellValueFactory(new PropertyValueFactory)
+        xpeople.setCellValueFactory(new PropertyValueFactory)*/
     }   
 }
     

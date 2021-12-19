@@ -52,7 +52,7 @@ public class Database {
         return verses;
     }
 
-    public ObservableList<Search> getPeople(){
+    /*public ObservableList<Search> getPeople(){
         try{
             Statement grafikstatement = connection.createStatement();
             ResultSet grafikresult = grafikstatement.executeQuery(queryGrafikPeople;     
@@ -61,5 +61,5 @@ public class Database {
 
         }
         return kategori;
-    }
+    }*/
 }
