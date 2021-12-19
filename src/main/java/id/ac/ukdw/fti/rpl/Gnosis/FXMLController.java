@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputControl;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
@@ -19,25 +20,28 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
 
-public class FXMLController implements Initializable{
-    
+public class FXMLController implements Initializable {
+
     private ObservableList<Search> verses = FXCollections.observableArrayList();
+    private ObservableList<Search> pernyataann = FXCollections.observableArrayList();
 
     @FXML
     private TableView<Search> maintable;
-    
+    @FXML
+    private TableView<Search> tablealkitab;
+
     @FXML
     private TableColumn<Search, String> tcplace;
-    
+
     @FXML
     private TableColumn<Search, String> tcpeopledied;
-    
+
     @FXML
     private TableColumn<Search, String> tchasbeenhere;
-    
+
     @FXML
     private TableColumn<Search, String> verseDuration;
-    
+
     @FXML
     private TextField tfsearch;
 
@@ -50,46 +54,83 @@ public class FXMLController implements Initializable{
     @FXML
     private NumberAxis ynumber;
 
+    @FXML
+    private TableColumn<Search, String> tcayat;
+    @FXML
+    private TextInputControl tfsearch2;
+
+    @FXML
+    private TableColumn<Search, String> verseText;
+    @FXML
+    private Object FilteredList;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // visualisasi utama topik
         verses = Database.instance.getAllVerse();
         tcplace.setCellValueFactory(new PropertyValueFactory<Search, String>("place"));
         tcpeopledied.setCellValueFactory(new PropertyValueFactory<Search, String>("peopledied"));
         tchasbeenhere.setCellValueFactory(new PropertyValueFactory<Search, String>("hasbeenhere"));
-        verseDuration.setCellValueFactory(new PropertyValueFactory<Search,String>("verseDuration1"));
+        verseDuration.setCellValueFactory(new PropertyValueFactory<Search, String>("verseDuration1"));
         maintable.setItems(verses);
 
-        //menampilkan semua data
-        FilteredList<Search> filteredData= new FilteredList<>(verses,searching->true);
+        // menampilkan semua data
+        FilteredList<Search> filteredData = new FilteredList<>(verses, searching -> true);
 
         tfsearch.textProperty().addListener((Observable, oldValue, newValue) -> {
             filteredData.setPredicate(verse -> {
-                if (newValue==null || newValue.isEmpty()) {
+                if (newValue == null || newValue.isEmpty()) {
                     return true;
-                    
+
                 }
-                String lowerCase=newValue.toLowerCase();
-                if(verse.getPlace().toLowerCase().indexOf(lowerCase)!=-1){
-                    return true; 
-                }              
-                if(verse.getPeopledied().toLowerCase().indexOf(lowerCase)!=-1){
-                    return true; 
+                String lowerCase = newValue.toLowerCase();
+                if (verse.getPlace().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
                 }
-                if(verse.getHasbeenhere().toLowerCase().indexOf(lowerCase)!=-1){
-                    return true; 
+                if (verse.getPeopledied().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
                 }
-                if(verse.getVerseDuration1().toLowerCase().indexOf(lowerCase)!=-1){
-                    return true; 
+                if (verse.getHasbeenhere().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
+
                 }
-                else{
+                if (verse.getVerseDuration1().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
+                } else {
                     return false;
                 }
             });
         });
-        SortedList<Search> sortingData=new SortedList<>(filteredData);
+        SortedList<Search> sortingData = new SortedList<>(filteredData);
         sortingData.comparatorProperty().bind(maintable.comparatorProperty());
         maintable.setItems(sortingData);
-    }   
-}
-    
 
+        // alkitab
+
+        pernyataann = Database.instance.getAllPernyataan();
+        tcayat.setCellValueFactory(new PropertyValueFactory<Search, String>("ayat"));
+        verseText.setCellValueFactory(new PropertyValueFactory<Search, String>("verseText1"));
+        tablealkitab.setItems(pernyataann);
+
+        tfsearch2.textProperty().addListener((Observable, oldValue, newValue) -> {
+            filteredData.setPredicate(verseal -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+
+                }
+                String lowerCase = newValue.toLowerCase();
+                if (verseal.getAyat().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
+
+                }
+                if (verseal.getVerseText1().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        });
+
+    }
+
+}

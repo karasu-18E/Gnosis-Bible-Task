@@ -12,20 +12,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Database {
-    final private String url="jdbc:sqlite:vizbible.sqlite";
-    final private String querySelect="SELECT displayTitle, peopleDied, hasBeenHere, verses from places";
-    final private String queryGrafik="SELECT people.displayTitle, count(places.placeID) FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
-    
-    ObservableList<Search> verses=FXCollections.observableArrayList();
-    ObservableList<Search> kategori=FXCollections.observableArrayList();
+    final private String url = "jdbc:sqlite:vizbible.sqlite";
+    final private String querySelect = "SELECT displayTitle, peopleDied, hasBeenHere, verses from places";
+    final private String queryGrafik = "SELECT people.displayTitle, count(places.placeID) FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
+    final private String querySelectt = "SELECT osisRef,verseText from verses";
+    ObservableList<Search> verses = FXCollections.observableArrayList();
+    ObservableList<Search> kategori = FXCollections.observableArrayList();
+    ObservableList<Search> pernyataann = FXCollections.observableArrayList();
 
     private Connection connection = null;
-    public static Database instance= new Database();
+    public static Database instance = new Database();
 
-    public Database(){
-        try{
+    public Database() {
+        try {
             connection = DriverManager.getConnection(url);
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -34,12 +35,12 @@ public class Database {
         return connection;
     }
 
-    public ObservableList<Search> getAllVerse(){
-        try {  
-            Statement statement=connection.createStatement();
+    public ObservableList<Search> getAllVerse() {
+        try {
+            Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(querySelect);
-            while (result.next()){
-                Search verse= new Search();
+            while (result.next()) {
+                Search verse = new Search();
                 verse.setPlace(result.getString("displayTitle"));
                 verse.setPeopledied(result.getString("peopleDied"));
                 verse.setHasbeenhere(result.getString("hasBeenHere"));
@@ -50,5 +51,21 @@ public class Database {
             System.out.println(e.getMessage());
         }
         return verses;
+    }
+
+    public ObservableList<Search> getAllPernyataan() {
+        try {
+            Statement pernyataan = connection.createStatement();
+            ResultSet result2 = pernyataan.executeQuery(querySelectt);
+            while (result2.next()) {
+                Search pernyataan2 = new Search();
+                pernyataan2.setAyat(result2.getString("osisRef"));
+                pernyataan2.setVerseText1(result2.getString("verseText"));
+                pernyataann.add(pernyataan2);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return pernyataann;
     }
 }

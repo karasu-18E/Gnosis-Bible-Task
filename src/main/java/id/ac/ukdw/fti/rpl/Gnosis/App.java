@@ -10,8 +10,7 @@ import javafx.stage.Stage;
  * Hello world!
  *
  */
-public class App extends Application
-{
+public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -26,8 +25,8 @@ public class App extends Application
         stage.setScene(scene);
         stage.show();
     }
-    public static void main( String[] args )
-    {
+
+    public static void main(String[] args) {
         launch(args);
     }
 }
