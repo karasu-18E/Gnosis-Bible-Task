@@ -117,6 +117,8 @@ public class Search {
      * public void setDeathplace(String deathplace){
      * this.deathplace = deathplace;
      * }
+     * 
+     * 
      */
 
 }
