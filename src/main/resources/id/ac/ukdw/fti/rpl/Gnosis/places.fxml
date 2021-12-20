@@ -21,7 +21,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="tfsearch2" layoutX="469.0" layoutY="16.0" opacity="0.61" prefHeight="28.0" prefWidth="153.0" text="Search">
+                        <TextField fx:id="tfsearch2" layoutX="469.0" layoutY="16.0" opacity="0.61" prefHeight="28.0" prefWidth="153.0" promptText="Search">
                            <font>
                               <Font name="Century Gothic Italic" size="11.0" />
                            </font>
@@ -33,7 +33,7 @@
                         </Text>
                         <TableView fx:id="tablealkitab" layoutX="40.0" layoutY="60.0" prefHeight="359.0" prefWidth="558.0">
                           <columns>
-                            <TableColumn fx:id="tcayat" prefWidth="125.33333969116211" text="People Related" />
+                            <TableColumn fx:id="tcayat" prefWidth="125.33333969116211" text="Chapter" />
                             <TableColumn fx:id="verseText" minWidth="0.0" prefWidth="430.66664123535156" text="Ayat" />
                           </columns>
                         </TableView>

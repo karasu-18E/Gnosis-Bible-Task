@@ -59,12 +59,14 @@ public class FXMLController implements Initializable {
     @FXML
     private TableColumn<Search, String> tcayat;
     @FXML
-    private TextInputControl tfsearch2;
+    private TextField tfsearch2;
 
     @FXML
     private TableColumn<Search, String> verseText;
     @FXML
     private Object FilteredList;
+    @FXML
+    private Object FilteredList2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -113,27 +115,34 @@ public class FXMLController implements Initializable {
         verseText.setCellValueFactory(new PropertyValueFactory<Search, String>("verseText1"));
         tablealkitab.setItems(pernyataann);
 
+        FilteredList<Search> filteredData2 = new FilteredList<>(pernyataann, searching -> true);
+
         tfsearch2.textProperty().addListener((Observable, oldValue, newValue) -> {
-            filteredData.setPredicate(verseal -> {
+            filteredData2.setPredicate(pernyataan2 -> {
                 if (newValue == null || newValue.isEmpty()) {
+
                     return true;
 
                 }
                 String lowerCase = newValue.toLowerCase();
-                if (verseal.getAyat().toLowerCase().indexOf(lowerCase) != -1) {
+
+                if (pernyataan2.getAyat().toLowerCase().indexOf(lowerCase) != -1) {
                     return true;
 
                 }
-                if (verseal.getVerseText1().toLowerCase().indexOf(lowerCase) != -1) {
+                if (pernyataan2.getVerseText1().toLowerCase().indexOf(lowerCase) != -1) {
                     return true;
                 } else {
                     return false;
                 }
             });
         });
-        
+        SortedList<Search> sortingData1 = new SortedList<>(filteredData2);
+        sortingData1.comparatorProperty().bind(tablealkitab.comparatorProperty());
+        tablealkitab.setItems(sortingData1);
+
         // grafik
-        //people = Database.instance.getAllKategori();
+        // people = Database.instance.getAllKategori();
         /*
          * tcplace.setCellValueFactory(new PropertyValueFactory<Search,
          * String>("place"));
@@ -142,16 +151,18 @@ public class FXMLController implements Initializable {
          * String>("peopledied"));
          */
         /*
-        XYChart.Series<String, Integer> datapeople = new XYChart.Series<String, Integer>();
-
-        for (int i = 0; i < people.size(); i++) {
-            datapeople.getData()
-                    .add(new XYChart.Data<String, Integer>(people.get(0).getPeople(), people.get(0).getJumlah()));
-
-        }
-
-        bcpeople.getData().add(datapeople);
-        */
+         * XYChart.Series<String, Integer> datapeople = new XYChart.Series<String,
+         * Integer>();
+         * 
+         * for (int i = 0; i < people.size(); i++) {
+         * datapeople.getData()
+         * .add(new XYChart.Data<String, Integer>(people.get(0).getPeople(),
+         * people.get(0).getJumlah()));
+         * 
+         * }
+         * 
+         * bcpeople.getData().add(datapeople);
+         */
 
         // bcpeople.setItems(people);
 
