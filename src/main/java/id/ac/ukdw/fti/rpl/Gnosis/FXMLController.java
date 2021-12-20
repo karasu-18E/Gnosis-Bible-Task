@@ -133,6 +133,9 @@ public class FXMLController implements Initializable {
         });
 
         // grafik
+
+
+
         people = Database.instance.getAllKategori();
         /*
          * tcplace.setCellValueFactory(new PropertyValueFactory<Search,
@@ -140,12 +143,13 @@ public class FXMLController implements Initializable {
          * tcpeopledied.setCellValueFactory(new PropertyValueFactory<Search,
          * String>("peopledied"));
          */
+        
+        xpeople.setsc();
 
         XYChart.Series<String, Integer> datapeople = new XYChart.Series<String, Integer>();
 
         for (int i = 0; i < people.size(); i++) {
-            datapeople.getData()
-                    .add(new XYChart.Data<String, Integer>(people.get(0).getPeople(), people.get(0).getJumlah()));
+            datapeople.getData().add(new XYChart.Data<String, Integer>(people.get(0).getPeople(), people.get(0).getJumlah()));
 
         }
 

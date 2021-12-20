@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.ukdw.fti.rpl.Gnosis.FXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.ukdw.fti.rpl.Gnosis.FXMLController">
    <children>
       <TabPane prefHeight="479.0" prefWidth="638.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -63,7 +63,24 @@
           </Tab>
             <Tab text="Visualisasi Sekunder">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="104.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="place" textAlignment="CENTER" wrappingWidth="75.47005462646484" />
+                        <Text layoutX="104.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="place" textAlignment="CENTER" wrappingWidth="75.47005462646484" />
+                        <Text layoutX="281.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="place" textAlignment="CENTER" wrappingWidth="75.47005462646484" />
+                        <Text layoutX="440.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="place" textAlignment="CENTER" wrappingWidth="75.47005462646484" />
+                        <Text layoutX="281.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="place" textAlignment="CENTER" wrappingWidth="75.47005462646484" />
+                        <Text layoutX="440.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="place" textAlignment="CENTER" wrappingWidth="75.47005462646484" />
+                        <Text layoutX="281.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="place" textAlignment="CENTER" wrappingWidth="75.47005462646484" />
+                        <Text layoutX="104.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="place" textAlignment="CENTER" wrappingWidth="75.47005462646484" />
+                        <Text layoutX="440.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="place" textAlignment="CENTER" wrappingWidth="75.47005462646484" />
+                        <TextField fx:id="tfsearch" layoutX="322.0" layoutY="40.0" prefHeight="25.0" prefWidth="230.0" />
+                        <Label layoutX="58.0" layoutY="22.0" prefHeight="61.0" prefWidth="242.0" text="TimeLine" textFill="#620606">
+                           <font>
+                              <Font name="STXinwei" size="50.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
               </content>
             </Tab>
           <Tab text="Visualisasi Utama Topik">
