@@ -168,6 +168,8 @@ public class FXMLController implements Initializable {
                 if (verse.getHasbeenhere().toLowerCase().indexOf(lowerCase) != -1) {
                     return true;
                 }
+            });
+        });
 
     }
 
