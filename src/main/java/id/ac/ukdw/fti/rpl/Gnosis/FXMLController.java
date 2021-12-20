@@ -29,6 +29,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     private TableView<Search> maintable;
+    
     @FXML
     private TableView<Search> tablealkitab;
 
@@ -57,12 +58,47 @@ public class FXMLController implements Initializable {
     private NumberAxis ynumber;
 
     @FXML
+    private Text tvperson;
+
+    @FXML
+    private Text place6;
+
+    @FXML
+    private Text place7;
+
+    @FXML
+    private Text place8;
+
+    @FXML
+    private Text place4;
+
+    @FXML
+    private Text place5;
+
+    @FXML
+    private Text place9;
+
+    @FXML
+    private Text place2;
+
+    @FXML
+    private Text place1;
+
+    @FXML
+    private Text place3;
+
+    @FXML
+    private TextField tfsearchtm;
+
+    @FXML
     private TableColumn<Search, String> tcayat;
+
     @FXML
     private TextInputControl tfsearch2;
 
     @FXML
     private TableColumn<Search, String> verseText;
+
     @FXML
     private Object FilteredList;
 
