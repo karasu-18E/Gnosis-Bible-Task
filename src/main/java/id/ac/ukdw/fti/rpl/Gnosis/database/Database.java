@@ -80,7 +80,7 @@ public class Database {
             while (grafikresult.next()) {
                 Search people = new Search();
                 people.setPeople(grafikresult.getString("osisRef"));
-                people.setJumlah(grafikresult.getInt("placesCount"));
+                people.setJumlaho(grafikresult.getInt("placesCount"));
                 kategori.add(people);
             }
         } catch (Exception e) {

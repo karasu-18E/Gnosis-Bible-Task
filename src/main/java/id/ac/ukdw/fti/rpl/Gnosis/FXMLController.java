@@ -134,22 +134,17 @@ public class FXMLController implements Initializable {
         });
 
         // grafik
-
-
-
         kategori = Database.instance.getAllKategori();
 
         // for (int i = 0; i < kategori.size(); i++){
         //     System.out.println(kategori.get(i).getJumlah()+","+kategori.get(i).getPeople());
         // }
-
-
+        
+        
         XYChart.Series<String, Integer> datapeople = new XYChart.Series<String, Integer>();
-
+        
         for (int i = 0; i < kategori.size(); i++) {
-            datapeople.getData().add(new XYChart.Data<String, Integer>(kategori.get(i).getPeople(), kategori.get(i).getJumlah()));
-            
-            
+            datapeople.getData().add(new XYChart.Data<String, Integer>(kategori.get(i).getPeople(), kategori.get(i).getJumlaho()));
         }
 
         bcpeople.getData().add(datapeople);

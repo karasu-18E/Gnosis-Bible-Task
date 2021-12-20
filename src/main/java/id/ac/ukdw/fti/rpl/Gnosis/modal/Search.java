@@ -7,8 +7,10 @@ public class Search {
     private String ayat;
     private String verseDuration1;
     private String verseText1;
-    private int jumlah;
+    private int jumlaho;
+    private int jumlaht;
     private String people;
+    private String peopleCo;
 
     public String getHasbeenhere() {
         if (this.hasbeenhere == null) {
@@ -18,12 +20,28 @@ public class Search {
         }
     }
 
-    public int getJumlah() {
-        return jumlah;
+    public int getJumlaht() {
+        return jumlaht;
     }
 
-    public void setJumlah(int jumlah) {
-        this.jumlah = jumlah;
+    public void setJumlaht(int jumlaht) {
+        this.jumlaht = jumlaht;
+    }
+
+    public String getPeopleCo() {
+        return peopleCo;
+    }
+
+    public void setPeopleCo(String peopleCo) {
+        this.peopleCo = peopleCo;
+    }
+
+    public int getJumlaho() {
+        return jumlaho;
+    }
+
+    public void setJumlaho(int jumlaho) {
+        this.jumlaho = jumlaho;
     }
 
     public String getPeople() {
