@@ -26,12 +26,16 @@ public class FXMLController implements Initializable {
     private ObservableList<Search> verses = FXCollections.observableArrayList();
     private ObservableList<Search> pernyataann = FXCollections.observableArrayList();
     private ObservableList<Search> people = FXCollections.observableArrayList();
+    private ObservableList<Search> perjalanann = FXCollections.observableArrayList();
 
     @FXML
     private TableView<Search> maintable;
     
     @FXML
     private TableView<Search> tablealkitab;
+
+    @FXML
+    private TableView<Search> tabletimeline;
 
     @FXML
     private TableColumn<Search, String> tcplace;
@@ -58,37 +62,13 @@ public class FXMLController implements Initializable {
     private NumberAxis ynumber;
 
     @FXML
-    private Text tvperson;
-
-    @FXML
-    private Text place6;
-
-    @FXML
-    private Text place7;
-
-    @FXML
-    private Text place8;
-
-    @FXML
-    private Text place4;
-
-    @FXML
-    private Text place5;
-
-    @FXML
-    private Text place9;
-
-    @FXML
-    private Text place2;
-
-    @FXML
-    private Text place1;
-
-    @FXML
-    private Text place3;
-
-    @FXML
     private TextField tfsearchtm;
+
+    @FXML
+    private TableColumn<Search, String> tcname;
+
+    @FXML
+    private TableColumn<Search, String> eastons;
 
     @FXML
     private TableColumn<Search, String> tcayat;
@@ -101,6 +81,12 @@ public class FXMLController implements Initializable {
 
     @FXML
     private Object FilteredList;
+
+    @FXML
+    private Object FilteredList2;
+
+    @FXML
+    private Object FilteredList3;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -149,24 +135,60 @@ public class FXMLController implements Initializable {
         verseText.setCellValueFactory(new PropertyValueFactory<Search, String>("verseText1"));
         tablealkitab.setItems(pernyataann);
 
+        FilteredList<Search> filteredData2 = new FilteredList<>(verses, searching -> true);
+
         tfsearch2.textProperty().addListener((Observable, oldValue, newValue) -> {
-            filteredData.setPredicate(verseal -> {
+            filteredData2.setPredicate(pernyataan2 -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
 
                 }
                 String lowerCase = newValue.toLowerCase();
-                if (verseal.getAyat().toLowerCase().indexOf(lowerCase) != -1) {
+                if (pernyataan2.getAyat().toLowerCase().indexOf(lowerCase) != -1) {
                     return true;
 
                 }
-                if (verseal.getVerseText1().toLowerCase().indexOf(lowerCase) != -1) {
+                if (pernyataan2.getVerseText1().toLowerCase().indexOf(lowerCase) != -1) {
                     return true;
                 } else {
                     return false;
                 }
             });
         });
+        SortedList<Search> sortingData1 = new SortedList<>(filteredData2);
+        sortingData1.comparatorProperty().bind(tablealkitab.comparatorProperty());
+        tablealkitab.setItems(sortingData1);
+
+        // Visualisasi Sekunder
+        perjalanann = Database.instance.getAllPerjalanan();
+        tcname.setCellValueFactory(new PropertyValueFactory<Search, String>("placeLookup"));
+        eastons.setCellValueFactory(new PropertyValueFactory<Search, String>("eastons"));
+        tabletimeline.setItems(perjalanann);
+
+        FilteredList<Search> filteredData3 = new FilteredList<>(perjalanann, searching -> true);
+
+        tfsearchtm.textProperty().addListener((Observable, oldValue, newValue) -> {
+            filteredData3.setPredicate(perjalanan2 -> {
+                if (newValue == null || newValue.isEmpty()) {
+
+                    return true;
+                }
+                String lowerCase = newValue.toLowerCase();
+
+                if (perjalanan2.getName().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
+                }
+
+                if (perjalanan2.getEastons().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        });
+        SortedList<Search> sortingData3 = new SortedList<>(filteredData3);
+        sortingData3.comparatorProperty().bind(tabletimeline.comparatorProperty());
+        tabletimeline.setItems(sortingData3);
         
         // grafik
         //people = Database.instance.getAllKategori();
@@ -190,22 +212,6 @@ public class FXMLController implements Initializable {
         */
 
         // bcpeople.setItems(people);
-
-        // Visualisasi Sekunder
-        FilteredList<Search> filteredData = new FilteredList<>(verses, searching -> true);
-
-        tfsearch.textProperty().addListener((Observable, oldValue, newValue) -> {
-            filteredData.setPredicate(verse -> {
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                String lowerCase = newValue.toLowerCase();
-                if (verse.getHasbeenhere().toLowerCase().indexOf(lowerCase) != -1) {
-                    return true;
-                }
-            });
-        });
 
     }
 

@@ -22,6 +22,8 @@ public class Database {
     ObservableList<Search> kategori = FXCollections.observableArrayList();
     // ALKITAB
     ObservableList<Search> pernyataann = FXCollections.observableArrayList();
+    // TIMELINE
+    ObservableList<Search> perjalanann = FXCollections.observableArrayList();
 
     private Connection connection = null;
     public static Database instance = new Database();
@@ -87,5 +89,21 @@ public class Database {
         }
         return verses;
 
+    }
+
+    public ObservableList<Search> getAllPerjalanan() {
+        try {
+            Statement perjalanan = connection.createStatement();
+            ResultSet perjalananresult = perjalanan.executeQuery(querySelectt);
+            while (perjalananresult.next()) {
+                Search perjalanan2 = new Search();
+                perjalanan2.setAyat(perjalananresult.getString("placeLookup"));
+                perjalanan2.setVerseText1(perjalananresult.getString("eastons"));
+                perjalanann.add(perjalanan2);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return perjalanann;
     }
 }

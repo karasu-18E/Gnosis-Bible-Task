@@ -9,6 +9,8 @@ public class Search {
     private String verseText1;
     private int jumlah;
     private String people;
+    private String eastons;
+    private String name;
 
     public String getHasbeenhere() {
         if (this.hasbeenhere == null) {
@@ -92,6 +94,26 @@ public class Search {
 
     public void setVerseText1(String verseText1) {
         this.verseText1 = verseText1;
+    }
+
+    public String getName() {
+        if (this.name == null) {
+            return "unknown";
+        } else {
+            return this.name;
+        }
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEastons() {
+        return this.eastons;
+    }
+
+    public void setEastons(String eastons) {
+        this.eastons = eastons;
     }
     /*
      * public String getName(){
