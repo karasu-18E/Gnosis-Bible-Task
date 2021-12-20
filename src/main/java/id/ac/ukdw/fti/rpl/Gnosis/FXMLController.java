@@ -40,13 +40,16 @@ public class FXMLController implements Initializable {
     private TableColumn<Search, String> tcplace;
 
     @FXML
+    private TableColumn<Search, String> tcpeopleborn;
+
+    @FXML
     private TableColumn<Search, String> tcpeopledied;
 
     @FXML
     private TableColumn<Search, String> tchasbeenhere;
 
     @FXML
-    private TableColumn<Search, String> verseDuration;
+    private TableColumn<Search, String> tcversebible;
 
     @FXML
     private TextField tfsearch;
@@ -76,10 +79,13 @@ public class FXMLController implements Initializable {
 
     @FXML
     private TableColumn<Search, String> verseText;
+    
     @FXML
     private Object FilteredList;
+    
     @FXML
     private Object FilteredList2;
+    
     private ObservableList<Search> perjalanann;
 
     @Override
@@ -87,9 +93,10 @@ public class FXMLController implements Initializable {
         // visualisasi utama topik
         verses = Database.instance.getAllVerse();
         tcplace.setCellValueFactory(new PropertyValueFactory<Search, String>("place"));
+        tcpeopleborn.setCellValueFactory(new PropertyValueFactory<Search,String>("peopleborn"));
         tcpeopledied.setCellValueFactory(new PropertyValueFactory<Search, String>("peopledied"));
+        tcversebible.setCellValueFactory(new PropertyValueFactory<Search, String>("versebible"));
         tchasbeenhere.setCellValueFactory(new PropertyValueFactory<Search, String>("hasbeenhere"));
-        verseDuration.setCellValueFactory(new PropertyValueFactory<Search, String>("verseDuration1"));
         maintable.setItems(verses);
 
         // menampilkan semua data
@@ -112,7 +119,7 @@ public class FXMLController implements Initializable {
                     return true;
 
                 }
-                if (verse.getVerseDuration1().toLowerCase().indexOf(lowerCase) != -1) {
+                if (verse.getVersebible().toLowerCase().indexOf(lowerCase) != -1) {
                     return true;
                 } else {
                     return false;
@@ -196,9 +203,14 @@ public class FXMLController implements Initializable {
             datapeople.getData().add(new XYChart.Data<String, Integer>(ketegori.get(i).getOsisRef(), ketegori.get(i).getJumlaho()));
             dataplaces.getData().add(new XYChart.Data<String, Integer>(ketegori.get(i).getOsisRef(), ketegori.get(i).getJumlaht()));
         }
+        
+        datapeople.setName("people");
+        dataplaces.setName("places");
 
         bcpeople.getData().add(datapeople);
         bcpeople.getData().add(dataplaces);
+
+        
         
         // Visualisasi Sekunder
         perjalanann = Database.instance.getAllPerjalanan();

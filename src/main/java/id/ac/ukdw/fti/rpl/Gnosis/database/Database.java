@@ -13,19 +13,19 @@ import javafx.collections.ObservableList;
 
 public class Database {
     final private String url = "jdbc:sqlite:vizbible.sqlite";
-    final private String querySelect = "SELECT displayTitle, peopleDied, hasBeenHere, verses from places";
+    //VUT
+    final private String querySelect = "SELECT displayTitle, peopleDied, peopleBorn, hasBeenHere, verses from places";
+    ObservableList<Search> verses = FXCollections.observableArrayList();
     //final private String queryGrafik = "SELECT people.displayTitle, count(places.placeID) FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
     final private String querygrafik2 = "SELECT osisRef,placesCount,peopleCount FROM verses WHERE placesCount > 3 AND peopleCount > 3;";
-    final private String querySelectt = "SELECT osisRef,verseText from verses";
-    final private String querySelecttt = "SELECT people.name, places.displayTitle FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
-
-    ObservableList<Search> verses = FXCollections.observableArrayList();
-    // GRAFIK
     ObservableList<Search> kategori = FXCollections.observableArrayList();
-    // ALKITAB
+    //alkitab
+    final private String querySelectt = "SELECT osisRef,verseText from verses";
     ObservableList<Search> pernyataann = FXCollections.observableArrayList();
-    // TIMELINE
+    //sekunder
+    final private String querySelecttt = "SELECT people.name, places.displayTitle FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
     ObservableList<Search> perjalanann = FXCollections.observableArrayList();
+    
 
     private Connection connection = null;
     public static Database instance = new Database();
@@ -49,9 +49,10 @@ public class Database {
             while (result.next()) {
                 Search verse = new Search();
                 verse.setPlace(result.getString("displayTitle"));
+                verse.setPeopleborn(result.getString("peopleBorn"));
                 verse.setPeopledied(result.getString("peopleDied"));
                 verse.setHasbeenhere(result.getString("hasBeenHere"));
-                verse.setVerseDuration1(result.getString("verses"));
+                verse.setVersebible(result.getString("verses"));
                 verses.add(verse);
             }
         } catch (Exception e) {

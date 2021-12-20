@@ -2,10 +2,11 @@ package id.ac.ukdw.fti.rpl.Gnosis.modal;
 
 public class Search {
     private String place;
+    private String peopleborn;
     private String peopledied;
     private String hasbeenhere;
+    private String versebible;
     private String ayat;
-    private String verseDuration1;
     private String verseText1;
     private int jumlaho;
     private int jumlaht;
@@ -14,14 +15,7 @@ public class Search {
     private String nama;
 
 
-    public String getHasbeenhere() {
-        if (this.hasbeenhere == null) {
-            return "unknown";
-        } else {
-            return this.hasbeenhere;
-        }
-    }
-
+    //grafik
     public String getOsisRef() {
         return osisRef;
     }
@@ -46,6 +40,7 @@ public class Search {
         this.jumlaho = jumlaho;
     }
 
+    //alkitab
     public String getAyat() {
         if (this.ayat == null) {
             return "unknown";
@@ -56,6 +51,23 @@ public class Search {
 
     public void setAyat(String ayat) {
         this.ayat = ayat;
+    }
+
+    public String getVerseText1() {
+        return this.verseText1;
+    }
+
+    public void setVerseText1(String verseText1) {
+        this.verseText1 = verseText1;
+    }
+
+    //VUT
+    public String getHasbeenhere() {
+        if (this.hasbeenhere == null) {
+            return "unknown";
+        } else {
+            return this.hasbeenhere;
+        }
     }
 
     public void setHasbeenhere(String hasbeenhere) {
@@ -74,6 +86,30 @@ public class Search {
         this.peopledied = peopledied;
     }
 
+    public String getVersebible() {
+        if (this.versebible == null) {
+            return "unknown";
+        } else {
+            return this.versebible;
+        }
+    }
+
+    public void setVersebible(String versebible) {
+        this.versebible = versebible;
+    }
+
+    public String getPeopleborn() {
+        if (this.peopleborn == null) {
+            return "unknown";
+        } else {
+            return this.peopleborn;
+        }
+    }
+
+    public void setPeopleborn(String peopleborn) {
+        this.peopleborn = peopleborn;
+    }
+
     public String getPlace() {
         if (this.place == null) {
             return "unknown";
@@ -86,26 +122,7 @@ public class Search {
         this.place = place;
     }
 
-    public void setVerseDuration1(String verseDuration1) {
-        this.verseDuration1 = verseDuration1;
-    }
-
-    public String getVerseDuration1() {
-        if (this.verseDuration1 == null) {
-            return "unknown";
-        } else {
-            return this.verseDuration1;
-        }
-    }
-
-    public String getVerseText1() {
-        return this.verseText1;
-    }
-
-    public void setVerseText1(String verseText1) {
-        this.verseText1 = verseText1;
-    }
-
+    //sekunder
     public String getNama() {
         if (this.nama == null) {
             return "unknown";
