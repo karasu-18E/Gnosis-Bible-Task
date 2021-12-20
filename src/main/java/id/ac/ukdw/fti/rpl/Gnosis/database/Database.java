@@ -86,7 +86,7 @@ public class Database {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return verses;
+        return kategori;
 
     }
 }
