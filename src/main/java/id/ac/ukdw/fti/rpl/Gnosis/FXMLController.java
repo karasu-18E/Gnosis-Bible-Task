@@ -25,7 +25,7 @@ public class FXMLController implements Initializable {
 
     private ObservableList<Search> verses = FXCollections.observableArrayList();
     private ObservableList<Search> pernyataann = FXCollections.observableArrayList();
-    private ObservableList<Search> people = FXCollections.observableArrayList();
+    private ObservableList<Search> ketegori= FXCollections.observableArrayList();
 
     @FXML
     private TableView<Search> maintable;
@@ -165,6 +165,26 @@ public class FXMLController implements Initializable {
          */
 
         // bcpeople.setItems(people);
+
+
+        // grafik
+        ketegori = Database.instance.getAllKategori();
+
+        // for (int i = 0; i < kategori.size(); i++){
+        //     System.out.println(kategori.get(i).getJumlah()+","+kategori.get(i).getPeople());
+        // }
+        
+        
+        XYChart.Series<String, Integer> datapeople = new XYChart.Series<String, Integer>();
+        XYChart.Series<String, Integer> dataplaces = new XYChart.Series<String, Integer>();
+        
+        for (int i = 0; i < ketegori.size(); i++) {
+            datapeople.getData().add(new XYChart.Data<String, Integer>(ketegori.get(i).getOsisRef(), ketegori.get(i).getJumlaho()));
+            dataplaces.getData().add(new XYChart.Data<String, Integer>(ketegori.get(i).getOsisRef(), ketegori.get(i).getJumlaht()));
+        }
+
+        bcpeople.getData().add(datapeople);
+        bcpeople.getData().add(dataplaces);
 
     }
 

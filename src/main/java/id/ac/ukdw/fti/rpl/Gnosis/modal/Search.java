@@ -7,8 +7,10 @@ public class Search {
     private String ayat;
     private String verseDuration1;
     private String verseText1;
-    private int jumlah;
-    private String people;
+    private int jumlaho;
+    private int jumlaht;
+    private String osisRef;
+
 
     public String getHasbeenhere() {
         if (this.hasbeenhere == null) {
@@ -18,20 +20,28 @@ public class Search {
         }
     }
 
-    public int getJumlah() {
-        return jumlah;
+    public String getOsisRef() {
+        return osisRef;
     }
 
-    public void setJumlah(int jumlah) {
-        this.jumlah = jumlah;
+    public void setOsisRef(String osisRef) {
+        this.osisRef = osisRef;
     }
 
-    public String getPeople() {
-        return people;
+    public int getJumlaht() {
+        return jumlaht;
     }
 
-    public void setPeople(String people) {
-        this.people = people;
+    public void setJumlaht(int jumlaht) {
+        this.jumlaht = jumlaht;
+    }
+
+    public int getJumlaho() {
+        return jumlaho;
+    }
+
+    public void setJumlaho(int jumlaho) {
+        this.jumlaho = jumlaho;
     }
 
     public String getAyat() {
