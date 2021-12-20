@@ -9,8 +9,7 @@ public class Search {
     private String verseText1;
     private int jumlaho;
     private int jumlaht;
-    private String people;
-    private String peopleCo;
+    private String osisRef;
 
     public String getHasbeenhere() {
         if (this.hasbeenhere == null) {
@@ -18,6 +17,14 @@ public class Search {
         } else {
             return this.hasbeenhere;
         }
+    }
+
+    public String getOsisRef() {
+        return osisRef;
+    }
+
+    public void setOsisRef(String osisRef) {
+        this.osisRef = osisRef;
     }
 
     public int getJumlaht() {
@@ -28,28 +35,12 @@ public class Search {
         this.jumlaht = jumlaht;
     }
 
-    public String getPeopleCo() {
-        return peopleCo;
-    }
-
-    public void setPeopleCo(String peopleCo) {
-        this.peopleCo = peopleCo;
-    }
-
     public int getJumlaho() {
         return jumlaho;
     }
 
     public void setJumlaho(int jumlaho) {
         this.jumlaho = jumlaho;
-    }
-
-    public String getPeople() {
-        return people;
-    }
-
-    public void setPeople(String people) {
-        this.people = people;
     }
 
     public String getAyat() {

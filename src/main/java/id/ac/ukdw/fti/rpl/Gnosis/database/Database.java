@@ -15,7 +15,7 @@ public class Database {
     final private String url = "jdbc:sqlite:vizbible.sqlite";
     final private String querySelect = "SELECT displayTitle, peopleDied, hasBeenHere, verses from places";
     //final private String queryGrafik = "SELECT people.displayTitle, count(places.placeID) FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
-    final private String querygrafik2 = "SELECT osisRef,placesCount FROM verses WHERE placesCount > 0 AND peopleCount > 0;";
+    final private String querygrafik2 = "SELECT osisRef,placesCount,peopleCount FROM verses WHERE placesCount > 3 AND peopleCount > 3;";
     final private String querySelectt = "SELECT osisRef,verseText from verses";
 
     ObservableList<Search> verses = FXCollections.observableArrayList();
@@ -79,8 +79,9 @@ public class Database {
             ResultSet grafikresult = grafikstatement.executeQuery(querygrafik2);
             while (grafikresult.next()) {
                 Search people = new Search();
-                people.setPeople(grafikresult.getString("osisRef"));
+                people.setOsisRef(grafikresult.getString("osisRef"));
                 people.setJumlaho(grafikresult.getInt("placesCount"));
+                people.setJumlaht(grafikresult.getInt("peopleCount"));
                 kategori.add(people);
             }
         } catch (Exception e) {
