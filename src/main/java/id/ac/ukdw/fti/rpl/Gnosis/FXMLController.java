@@ -64,10 +64,10 @@ public class FXMLController implements Initializable {
     private TextField tfsearchtm;
 
     @FXML
-    private TableColumn<Search, String> tcname;
+    private TableColumn<Search, String> tcnama;
 
     @FXML
-    private TableColumn<Search, String> eastons;
+    private TableColumn<Search, String> tceastons;
 
     @FXML
     private TableColumn<Search, String> tcayat;
@@ -202,8 +202,8 @@ public class FXMLController implements Initializable {
         
         // Visualisasi Sekunder
         perjalanann = Database.instance.getAllPerjalanan();
-        tcname.setCellValueFactory(new PropertyValueFactory<Search, String>("placeLookup"));
-        eastons.setCellValueFactory(new PropertyValueFactory<Search, String>("eastons"));
+        tcnama.setCellValueFactory(new PropertyValueFactory<Search, String>("hasBeenHere"));
+        tceastons.setCellValueFactory(new PropertyValueFactory<Search, String>("eastons1"));
         tabletimeline.setItems(perjalanann);
 
         FilteredList<Search> filteredData3 = new FilteredList<>(perjalanann, searching -> true);
@@ -216,11 +216,11 @@ public class FXMLController implements Initializable {
                 }
                 String lowerCase = newValue.toLowerCase();
 
-                if (perjalanan2.getName().toLowerCase().indexOf(lowerCase) != -1) {
+                if (perjalanan2.getNama().toLowerCase().indexOf(lowerCase) != -1) {
                     return true;
                 }
 
-                if (perjalanan2.getEastons().toLowerCase().indexOf(lowerCase) != -1) {
+                if (perjalanan2.getEastons1().toLowerCase().indexOf(lowerCase) != -1) {
                     return true;
                 } else {
                     return false;

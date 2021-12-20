@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.ukdw.fti.rpl.Gnosis.FXMLController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="id.ac.ukdw.fti.rpl.Gnosis.FXMLController">
    <children>
       <TabPane prefHeight="479.0" prefWidth="638.0" style="-fx-border-width: 100%;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -65,7 +65,25 @@
           </Tab>
             <Tab style="-fx-background-color: #DBFED6;" text="Visualisasi Sekunder">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tfsearchtm" layoutX="469.0" layoutY="16.0" opacity="0.61" prefHeight="28.0" prefWidth="153.0" promptText="Search">
+                           <font>
+                              <Font name="Century Gothic Italic" size="11.0" />
+                           </font>
+                        </TextField>
+                        <Text fill="#130f9a" fontSmoothingType="LCD" layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TimeLine" textAlignment="CENTER" wrappingWidth="151.08330535888672">
+                           <font>
+                              <Font name="Century Gothic Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="tabletimeline" layoutX="40.0" layoutY="60.0" prefHeight="359.0" prefWidth="558.0">
+                          <columns>
+                            <TableColumn fx:id="tcnama" prefWidth="125.33333969116211" text="Person" />
+                            <TableColumn fx:id="tceastons" minWidth="0.0" prefWidth="430.66664123535156" text="Travel Trail " />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
               </content>
             </Tab>
           <Tab style="-fx-background-color: #DBFED6;" text="Visualisasi Utama Topik">
