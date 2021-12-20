@@ -29,8 +29,12 @@ public class FXMLController implements Initializable {
 
     @FXML
     private TableView<Search> maintable;
+
     @FXML
     private TableView<Search> tablealkitab;
+
+    @FXML
+    private TableView<Search> tabletimeline;
 
     @FXML
     private TableColumn<Search, String> tcplace;
@@ -57,6 +61,15 @@ public class FXMLController implements Initializable {
     private NumberAxis ynumber;
 
     @FXML
+    private TextField tfsearchtm;
+
+    @FXML
+    private TableColumn<Search, String> tcname;
+
+    @FXML
+    private TableColumn<Search, String> eastons;
+
+    @FXML
     private TableColumn<Search, String> tcayat;
     @FXML
     private TextField tfsearch2;
@@ -67,6 +80,7 @@ public class FXMLController implements Initializable {
     private Object FilteredList;
     @FXML
     private Object FilteredList2;
+    private ObservableList<Search> perjalanann;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -185,6 +199,37 @@ public class FXMLController implements Initializable {
 
         bcpeople.getData().add(datapeople);
         bcpeople.getData().add(dataplaces);
+        
+        // Visualisasi Sekunder
+        perjalanann = Database.instance.getAllPerjalanan();
+        tcname.setCellValueFactory(new PropertyValueFactory<Search, String>("placeLookup"));
+        eastons.setCellValueFactory(new PropertyValueFactory<Search, String>("eastons"));
+        tabletimeline.setItems(perjalanann);
+
+        FilteredList<Search> filteredData3 = new FilteredList<>(perjalanann, searching -> true);
+
+        tfsearchtm.textProperty().addListener((Observable, oldValue, newValue) -> {
+            filteredData3.setPredicate(perjalanan2 -> {
+                if (newValue == null || newValue.isEmpty()) {
+
+                    return true;
+                }
+                String lowerCase = newValue.toLowerCase();
+
+                if (perjalanan2.getName().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
+                }
+
+                if (perjalanan2.getEastons().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        });
+        SortedList<Search> sortingData3 = new SortedList<>(filteredData3);
+        sortingData3.comparatorProperty().bind(tabletimeline.comparatorProperty());
+        tabletimeline.setItems(sortingData3);
 
     }
 

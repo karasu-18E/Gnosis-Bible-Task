@@ -17,12 +17,15 @@ public class Database {
     //final private String queryGrafik = "SELECT people.displayTitle, count(places.placeID) FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
     final private String querygrafik2 = "SELECT osisRef,placesCount,peopleCount FROM verses WHERE placesCount > 3 AND peopleCount > 3;";
     final private String querySelectt = "SELECT osisRef,verseText from verses";
+    final private String querySelecttt = "SELECT eastons from places";
 
     ObservableList<Search> verses = FXCollections.observableArrayList();
     // GRAFIK
     ObservableList<Search> kategori = FXCollections.observableArrayList();
     // ALKITAB
     ObservableList<Search> pernyataann = FXCollections.observableArrayList();
+    // TIMELINE
+    ObservableList<Search> perjalanann = FXCollections.observableArrayList();
 
     private Connection connection = null;
     public static Database instance = new Database();
@@ -89,5 +92,21 @@ public class Database {
         }
         return kategori;
 
+    }
+
+    public ObservableList<Search> getAllPerjalanan() {
+        try {
+            Statement perjalanan = connection.createStatement();
+            ResultSet perjalananresult = perjalanan.executeQuery(querySelecttt);
+            while (perjalananresult.next()) {
+                Search perjalanan2 = new Search();
+                perjalanan2.setName(perjalananresult.getString("placeLookup"));
+                perjalanan2.setEastons(perjalananresult.getString("eastons"));
+                perjalanann.add(perjalanan2);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return perjalanann;
     }
 }

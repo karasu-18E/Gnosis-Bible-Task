@@ -10,6 +10,8 @@ public class Search {
     private int jumlaho;
     private int jumlaht;
     private String osisRef;
+    private String eastons;
+    private String name;
 
 
     public String getHasbeenhere() {
@@ -102,6 +104,26 @@ public class Search {
 
     public void setVerseText1(String verseText1) {
         this.verseText1 = verseText1;
+    }
+
+    public String getName() {
+        if (this.name == null) {
+            return "unknown";
+        } else {
+            return this.name;
+        }
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEastons() {
+        return this.eastons;
+    }
+
+    public void setEastons(String eastons) {
+        this.eastons = eastons;
     }
     /*
      * public String getName(){
