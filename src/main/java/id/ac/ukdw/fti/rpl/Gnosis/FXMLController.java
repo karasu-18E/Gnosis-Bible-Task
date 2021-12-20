@@ -131,16 +131,16 @@ public class FXMLController implements Initializable {
                 }
             });
         });
-
+        
         // grafik
-        people = Database.instance.getAllKategori();
+        //people = Database.instance.getAllKategori();
         /*
          * tcplace.setCellValueFactory(new PropertyValueFactory<Search,
          * String>("place"));
          * tcpeopledied.setCellValueFactory(new PropertyValueFactory<Search,
          * String>("peopledied"));
          */
-
+        /*
         XYChart.Series<String, Integer> datapeople = new XYChart.Series<String, Integer>();
 
         for (int i = 0; i < people.size(); i++) {
@@ -150,6 +150,7 @@ public class FXMLController implements Initializable {
         }
 
         bcpeople.getData().add(datapeople);
+        */
 
         // bcpeople.setItems(people);
 
