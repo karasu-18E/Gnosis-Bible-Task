@@ -137,6 +137,7 @@ public class FXMLController implements Initializable {
         /*
          * tcplace.setCellValueFactory(new PropertyValueFactory<Search,
          * String>("place"));
+         * 
          * tcpeopledied.setCellValueFactory(new PropertyValueFactory<Search,
          * String>("peopledied"));
          */
