@@ -17,7 +17,7 @@ public class Database {
     //final private String queryGrafik = "SELECT people.displayTitle, count(places.placeID) FROM people INNER JOIN places on hasBeenHere = people.personLookup GROUP BY  people.displayTitle;";
     final private String querygrafik2 = "SELECT osisRef,placesCount,peopleCount FROM verses WHERE placesCount > 3 AND peopleCount > 3;";
     final private String querySelectt = "SELECT osisRef,verseText from verses";
-    final private String querySelecttt = "SELECT hasbeenHere, eastons FROM places";
+    final private String querySelecttt = "SELECT hasbeenHere, placeLookup FROM places WHERE hasBeenHere is NOT NULL";
 
     ObservableList<Search> verses = FXCollections.observableArrayList();
     // GRAFIK
@@ -101,7 +101,7 @@ public class Database {
             while (perjalananresult.next()) {
                 Search perjalanan2 = new Search();
                 perjalanan2.setNama(perjalananresult.getString("hasbeenHere"));
-                perjalanan2.setEastons1(perjalananresult.getString("eastons"));
+                perjalanan2.setEastons1(perjalananresult.getString("placeLookup"));
                 perjalanann.add(perjalanan2);
             }
         } catch (Exception e) {

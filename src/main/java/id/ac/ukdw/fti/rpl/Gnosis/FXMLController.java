@@ -202,7 +202,7 @@ public class FXMLController implements Initializable {
         
         // Visualisasi Sekunder
         perjalanann = Database.instance.getAllPerjalanan();
-        tcnama.setCellValueFactory(new PropertyValueFactory<Search, String>("hasBeenHere"));
+        tcnama.setCellValueFactory(new PropertyValueFactory<Search, String>("nama"));
         tceastons.setCellValueFactory(new PropertyValueFactory<Search, String>("eastons1"));
         tabletimeline.setItems(perjalanann);
 
