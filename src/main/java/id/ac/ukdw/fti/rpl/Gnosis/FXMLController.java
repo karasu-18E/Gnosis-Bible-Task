@@ -133,7 +133,7 @@ public class FXMLController implements Initializable {
         });
         
         // grafik
-        //people = Database.instance.getAllKategori();
+        people = Database.instance.getAllKategori();
         /*
          * tcplace.setCellValueFactory(new PropertyValueFactory<Search,
          * String>("place"));
