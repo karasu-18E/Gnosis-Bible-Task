@@ -155,6 +155,20 @@ public class FXMLController implements Initializable {
 
         // bcpeople.setItems(people);
 
+        // Visualisasi Sekunder
+        FilteredList<Search> filteredData = new FilteredList<>(verses, searching -> true);
+
+        tfsearch.textProperty().addListener((Observable, oldValue, newValue) -> {
+            filteredData.setPredicate(verse -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String lowerCase = newValue.toLowerCase();
+                if (verse.getHasbeenhere().toLowerCase().indexOf(lowerCase) != -1) {
+                    return true;
+                }
+
     }
 
 }
